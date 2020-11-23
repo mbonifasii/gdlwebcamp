@@ -18,25 +18,35 @@
 
   <link rel="stylesheet" href="css/normalize.css">
   <link rel="stylesheet" href="css/all.min.css">
-  <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;700&family=Oswald:wght@200;400;700&family=PT+Sans:wght@400;700&display=swap" rel="stylesheet"> 
+  <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;700&family=Oswald:wght@200;400;700&family=PT+Sans:wght@400;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css" />
+  <?php
+  $archivo = basename($_SERVER['PHP_SELF']);
+  $pagina = str_replace(".php", "", $archivo);
+
+  if ($pagina == 'invitados' || $pagina == 'index') {
+    echo '<link rel="stylesheet" href="css/colorbox.css">';
+  } else if ($pagina == 'conferencia') {
+    echo '<link rel="stylesheet" href="css/lightbox.css">';
+  }
+  ?>
   <link rel="stylesheet" href="css/main.css">
 
   <meta name="theme-color" content="#fafafa">
 </head>
 
-<body>
+<body class="<?php echo $pagina ?>">
 
   <!-- Add your site or application content here -->
   <header class="site-header">
     <div class="hero">
       <div class="contenido-header">
         <nav class="redes-sociales">
-            <a href="#"><i class="fab fa-facebook"></i></a>
-            <a href="#"><i class="fab fa-twitter"></i></a>
-            <a href="#"><i class="fab fa-pinterest"></i></a>
-            <a href="#"><i class="fab fa-youtube"></i></a>
-            <a href="#"><i class="fab fa-instagram"></i></a>
+          <a href="#"><i class="fab fa-facebook"></i></a>
+          <a href="#"><i class="fab fa-twitter"></i></a>
+          <a href="#"><i class="fab fa-pinterest"></i></a>
+          <a href="#"><i class="fab fa-youtube"></i></a>
+          <a href="#"><i class="fab fa-instagram"></i></a>
         </nav>
         <div class="informacion-evento">
           <div class="clearfix">
@@ -44,7 +54,7 @@
             <p class="ciudad"><i class="fas fa-map-marker-alt"></i>Guatemala, city</p>
           </div>
           <h1 class="nombre-sitio">GDLWEBCAMP</h1>
-          <p class="slogan">La mejor conferencia de  <span>diseño web</span></p>
+          <p class="slogan">La mejor conferencia de <span>diseño web</span></p>
         </div>
       </div>
     </div>
@@ -53,9 +63,9 @@
   <div class="barra">
     <div class="contenedor clearfix">
       <div class="logo">
-            <a href="index.php">
-                <img src="img/logo.svg" alt="Logo gdlwebcamp">
-            </a>
+        <a href="index.php">
+          <img src="img/logo.svg" alt="Logo gdlwebcamp">
+        </a>
       </div>
 
       <div class="menu-movil">
